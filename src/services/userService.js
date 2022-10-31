@@ -24,5 +24,5 @@ function getUser() {
 }
 function getTransactions() {
     console.log('get transactions...');
-    return transactions
+    return transactions.slice(0,3)
 }

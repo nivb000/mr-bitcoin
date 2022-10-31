@@ -11,30 +11,40 @@
       <div v-if="currencies" class="coin-info">
         <table v-if="rates">
           <thead>
-            <select v-on:change="getRates" name="currencies" v-model="currCurrency">
-              <option v-for="currency in currencies" :key="currency" :value="currency">{{currency}}</option>
+            <select
+              v-on:change="getRates"
+              name="currencies"
+              v-model="currCurrency"
+            >
+              <option
+                v-for="currency in currencies"
+                :key="currency"
+                :value="currency"
+              >
+                {{ currency }}
+              </option>
             </select>
           </thead>
           <tbody>
             <tr>
               <td>Symbol</td>
-              <td>{{rates['symbol']}}</td>
+              <td>{{ rates["symbol"] }}</td>
             </tr>
             <tr>
               <td>15 Minutes</td>
-              <td>{{rates['15m']}}</td>
+              <td>{{ rates["15m"] }}</td>
             </tr>
             <tr>
               <td>Last</td>
-              <td>{{rates.last}}</td>
+              <td>{{ rates.last }}</td>
             </tr>
             <tr>
               <td>Buy</td>
-              <td>{{rates.buy}}</td>
+              <td>{{ rates.buy }}</td>
             </tr>
             <tr>
               <td>Sell</td>
-              <td>{{rates.sell}}</td>
+              <td>{{ rates.sell }}</td>
             </tr>
           </tbody>
         </table>
@@ -43,9 +53,9 @@
     <h3 class="transactions-title">Your Latest Transactions</h3>
     <ul class="transactions-list">
       <li v-for="transaction in transactions" :key="transaction">
-        <h5>To: {{transaction.to}} ({{transaction.toId}})</h5>
-        <h5>At: {{transaction.at}}</h5>
-        <p>Amount: {{transaction.amount}} BTC</p>
+        <h5>To: {{ transaction.to }} ({{ transaction.toId }})</h5>
+        <h5>At: {{ transaction.at }}</h5>
+        <p>Amount: {{ transaction.amount }} BTC</p>
       </li>
     </ul>
   </section>
@@ -54,45 +64,50 @@
 <script>
 import { userService } from "../services/userService.js";
 import { bitcoinService } from "../services/bitcoinService.js";
-import Transactions  from '../components/Transaction.vue'
+import Transactions from "../components/Transaction.vue";
 export default {
   data() {
     return {
       loggedInUser: null,
       rates: null,
       currencies: [],
-      currCurrency: 'USD'
+      currCurrency: "USD",
     };
   },
   methods: {
-    async getAllCurrencies(){
-      this.currencies = await bitcoinService.getCurrenices()
+    async getAllCurrencies() {
+      this.currencies = await bitcoinService.getCurrenices();
     },
-    async getRates(){
-      this.rates = await bitcoinService.getRate(this.currCurrency)
-    }
+    async getRates() {
+      this.rates = await bitcoinService.getRate(this.currCurrency);
+    },
   },
-  computed:{    
-    transactions(){
-      return userService.getTransactions()
-    }
+  computed: {
+    transactions() {
+      return userService.getTransactions();
+    },
   },
   created() {
     this.loggedInUser = userService.getUser();
-    this.getAllCurrencies()
-    this.getRates()
+    this.getAllCurrencies();
+    this.getRates();
   },
-  components:{
-    Transactions
-  }
+  components: {
+    Transactions,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.home-page{
+.home-page {
   .main-info-container {
+    padding: 1rem;
+    box-shadow: -1px 3px 31px 10px rgba(34, 184, 130, 0.88);
+    -webkit-box-shadow: -1px 3px 31px 10px rgba(34, 184, 130, 0.88);
+    -moz-box-shadow: -1px 3px 31px 10px rgba(34, 184, 130, 0.88);
     margin: 5rem auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
     .user-info {
@@ -114,15 +129,18 @@ export default {
         ),
         radial-gradient(at 0% 68%, hsla(61, 99%, 70%, 1) 0px, transparent 50%),
         radial-gradient(at 42% 12%, hsla(74, 74%, 49%, 1) 0px, transparent 50%),
-        radial-gradient(at 80% 26%, hsla(160, 100%, 37%, 1) 0px, transparent 50%);
+        radial-gradient(
+          at 80% 26%,
+          hsla(160, 100%, 37%, 1) 0px,
+          transparent 50%
+        );
     }
-    .coin-info{
+    .coin-info {
       color: white;
-      border: 5px solid hsla(160, 100%, 37%, 1);
-      table{
+      table {
         width: 300px;
-        thead{
-          select{
+        thead {
+          select {
             color: white;
             background: transparent;
             font-size: 1rem;
@@ -131,15 +149,15 @@ export default {
             border-top: 0;
             border-left: 0;
             border-right: 0;
-            &:focus{
+            &:focus {
               background-color: goldenrod;
               color: black;
             }
           }
         }
-        tbody{
+        tbody {
           background-color: hsla(160, 100%, 37%, 1);
-          td{
+          td {
             padding: 1rem;
             font-size: 1.2rem;
           }
@@ -147,26 +165,57 @@ export default {
       }
     }
   }
-  .transactions-title{
+  .transactions-title {
     text-align: center;
     color: white;
     margin-block-end: 3rem;
   }
-  .transactions-list{
+  .transactions-list {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    li{
+    li {
       border: 5px solid hsla(160, 100%, 37%, 1);
       padding: 1rem;
       background-color: goldenrod;
       border-radius: 15px;
       max-width: 250px;
-      h5{
+      h5 {
         margin-block-end: 0.5rem;
       }
     }
   }
 }
+
+@media (max-width: 600px){
+  .home-page{
+    .main-info-container{
+      margin: 3rem auto;
+      & > * {
+        margin-block-end: 3rem;
+      }
+      .user-info{
+        height: 170px;
+      }
+      .transaction{
+        height: 350px;
+      }
+      .coin-info{
+        table{
+          width: 255px;
+          tbody{
+            tr{
+              td{
+                padding: 0.3rem;
+                font-size: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 </style>
