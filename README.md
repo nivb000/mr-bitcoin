@@ -1,5 +1,7 @@
-# mr-bitcoin-vue
+# Mr-bitcoin-vue
 
-Simple Bitcoin  *** DEMO *** transfer app builded with Vue and VueX
+Fully responsive Bitcoin DEMO transfer app
+
+Builded with Vue & Vite and VueX
 
 [Live here](https://nivb000.github.io/mr-bitcoin-vue/)
