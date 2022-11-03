@@ -39,4 +39,8 @@ input{
     color: white;
     opacity: 1;
 }
+
+@media (max-width: 600px){
+    input{width: 70%;}
+}
 </style>

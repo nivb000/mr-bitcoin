@@ -166,7 +166,6 @@ export default {
     }
   }
   .transactions-title {
-    text-align: center;
     color: white;
     margin-block-end: 3rem;
   }

@@ -83,7 +83,7 @@ header {
           right: 0;
           width: 100%;
           display: block;
-          background-color: rgba(78, 145, 199, 0.654);
+          background-color: hsla(160, 100%, 37%, 1);
           height: 100%;
           z-index: 3;
         }

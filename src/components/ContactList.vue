@@ -93,4 +93,11 @@ export default {
     transform: translateX(100%);
   }
 }
+@media (max-width: 600px) {
+  .contact-list{
+    ul{
+      place-content: center;
+    }
+  }
+}
 </style>
