@@ -2,12 +2,12 @@
 
 Mr bitcoin is an **DEMO** app where you can exchange bitcoin for free
 
-<h3>🟢Builded with <img src="https://github.com/get-icon/geticon/raw/master/icons/vue.svg" alt="Vue.js" width="21px" height="21px">
-and <img src="https://github.com/get-icon/geticon/raw/master/icons/vite.svg" alt="Vite" width="21px" height="21px"></h3>
+<h3>🟢Builded with <img src="https://github.com/get-icon/geticon/raw/master/icons/vue.svg" alt="Vue.js" width="30px" height="30px">
+and <img src="https://github.com/get-icon/geticon/raw/master/icons/vite.svg" alt="Vite" width="30px" height="30px"></h3>
 
-<h3>🟢State management with VueX🟢</h3>
+<h3>🟢State management with VueX</h3>
 
-[Project Live Here](https://nivb000.github.io/mr-bitcoin-angular/#/)
+[Project Live Here](https://mr-bitcoin.onrender.com/)
 
 
 
@@ -21,7 +21,7 @@ and <img src="https://github.com/get-icon/geticon/raw/master/icons/vite.svg" alt
 
 <img align="left" height="400" width="200" alt="responsive" src="https://res.cloudinary.com/dhe2rvexr/image/upload/v1667479358/Mr%20Bitcoin%20Vue/homepage_responsive_u9mgfi.png">
 
-<img align="left"  height="400" width="200" alt="responsive" src="https://res.cloudinary.com/dhe2rvexr/image/upload/v1667479357/Mr%20Bitcoin%20Vue/responsive_navbar_wvxumm.png>
+<img align="left"  height="400" width="200" alt="responsive" src="https://res.cloudinary.com/dhe2rvexr/image/upload/v1667479357/Mr%20Bitcoin%20Vue/responsive_navbar_wvxumm.png">
 
 <img align="center" height="400" width="200" alt="responsive" src="https://res.cloudinary.com/dhe2rvexr/image/upload/v1667479356/Mr%20Bitcoin%20Vue/contact_page_responsive_syjxwk.png">
 
@@ -37,10 +37,10 @@ To deploy this project run
 then
 
 ```bash
-    ng serve
+    npm run dev
 ```
 
-or [Live Here](https://nivb000.github.io/mr-bitcoin-vue)
+or [Live Here](https://mr-bitcoin.onrender.com/)
 
 
 #### Not intended for real use
